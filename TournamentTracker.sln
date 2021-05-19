@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackerLibrary", "TrackerLibrary\TrackerLibrary.csproj", "{76F96E94-1312-4084-81BE-0E8BB44AC184}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackerUI", "TrackerUI\TrackerUI.csproj", "{7555D04D-EE1F-41EE-849D-F6F9BF4F5905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrackerUI", "TrackerUI\TrackerUI.csproj", "{7555D04D-EE1F-41EE-849D-F6F9BF4F5905}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
