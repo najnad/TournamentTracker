@@ -43,7 +43,7 @@ namespace TrackerUI
             this.teamTwoNameLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.versusLabel = new System.Windows.Forms.Label();
-            this.scoreButton = new System.Windows.Forms.Button();
+            this.saveScoreButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // headerLabel
@@ -189,21 +189,21 @@ namespace TrackerUI
             this.versusLabel.Text = "VS";
             this.versusLabel.Click += new System.EventHandler(this.label2_Click);
             // 
-            // scoreButton
+            // saveScoreButton
             // 
-            this.scoreButton.BackColor = System.Drawing.Color.SkyBlue;
-            this.scoreButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.scoreButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.scoreButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.scoreButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.scoreButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.scoreButton.ForeColor = System.Drawing.Color.White;
-            this.scoreButton.Location = new System.Drawing.Point(475, 404);
-            this.scoreButton.Name = "scoreButton";
-            this.scoreButton.Size = new System.Drawing.Size(119, 43);
-            this.scoreButton.TabIndex = 14;
-            this.scoreButton.Text = "Score";
-            this.scoreButton.UseVisualStyleBackColor = false;
+            this.saveScoreButton.BackColor = System.Drawing.Color.SkyBlue;
+            this.saveScoreButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.saveScoreButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.saveScoreButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.saveScoreButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveScoreButton.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.saveScoreButton.ForeColor = System.Drawing.Color.White;
+            this.saveScoreButton.Location = new System.Drawing.Point(444, 404);
+            this.saveScoreButton.Name = "saveScoreButton";
+            this.saveScoreButton.Size = new System.Drawing.Size(190, 43);
+            this.saveScoreButton.TabIndex = 14;
+            this.saveScoreButton.Text = "Save Score";
+            this.saveScoreButton.UseVisualStyleBackColor = false;
             // 
             // TournamentViewerForm
             // 
@@ -211,7 +211,7 @@ namespace TrackerUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(703, 497);
-            this.Controls.Add(this.scoreButton);
+            this.Controls.Add(this.saveScoreButton);
             this.Controls.Add(this.versusLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.teamTwoScoreValue);
@@ -251,7 +251,7 @@ namespace TrackerUI
         private System.Windows.Forms.Label teamTwoNameLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label versusLabel;
-        private System.Windows.Forms.Button scoreButton;
+        private System.Windows.Forms.Button saveScoreButton;
     }
 }
 
