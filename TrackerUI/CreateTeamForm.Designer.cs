@@ -35,20 +35,20 @@ namespace TrackerUI
             this.addPlayerButton = new System.Windows.Forms.Button();
             this.selectPlayerDropDown = new System.Windows.Forms.ComboBox();
             this.selectPlayerLabel = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.createPlayerGroupBox = new System.Windows.Forms.GroupBox();
             this.firstNameValue = new System.Windows.Forms.TextBox();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.lastNameValue = new System.Windows.Forms.TextBox();
             this.emailAddressLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.emailAddressValue = new System.Windows.Forms.TextBox();
             this.lastNameLabel = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.cellphoneNumberLabel = new System.Windows.Forms.Label();
+            this.cellphoneValue = new System.Windows.Forms.TextBox();
+            this.cellphoneLabel = new System.Windows.Forms.Label();
             this.createPlayerButton = new System.Windows.Forms.Button();
             this.playersListBox = new System.Windows.Forms.ListBox();
             this.removePlayerButton = new System.Windows.Forms.Button();
             this.createTeamButton = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.createPlayerGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // teamNameValue
@@ -115,24 +115,24 @@ namespace TrackerUI
             this.selectPlayerLabel.TabIndex = 51;
             this.selectPlayerLabel.Text = "Select Player";
             // 
-            // groupBox1
+            // createPlayerGroupBox
             // 
-            this.groupBox1.Controls.Add(this.createPlayerButton);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.cellphoneNumberLabel);
-            this.groupBox1.Controls.Add(this.lastNameLabel);
-            this.groupBox1.Controls.Add(this.lastNameValue);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.emailAddressLabel);
-            this.groupBox1.Controls.Add(this.firstNameValue);
-            this.groupBox1.Controls.Add(this.firstNameLabel);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(41, 309);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(341, 352);
-            this.groupBox1.TabIndex = 54;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add New Player";
+            this.createPlayerGroupBox.Controls.Add(this.createPlayerButton);
+            this.createPlayerGroupBox.Controls.Add(this.cellphoneValue);
+            this.createPlayerGroupBox.Controls.Add(this.cellphoneLabel);
+            this.createPlayerGroupBox.Controls.Add(this.lastNameLabel);
+            this.createPlayerGroupBox.Controls.Add(this.lastNameValue);
+            this.createPlayerGroupBox.Controls.Add(this.emailAddressValue);
+            this.createPlayerGroupBox.Controls.Add(this.emailAddressLabel);
+            this.createPlayerGroupBox.Controls.Add(this.firstNameValue);
+            this.createPlayerGroupBox.Controls.Add(this.firstNameLabel);
+            this.createPlayerGroupBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.createPlayerGroupBox.Location = new System.Drawing.Point(41, 309);
+            this.createPlayerGroupBox.Name = "createPlayerGroupBox";
+            this.createPlayerGroupBox.Size = new System.Drawing.Size(341, 352);
+            this.createPlayerGroupBox.TabIndex = 54;
+            this.createPlayerGroupBox.TabStop = false;
+            this.createPlayerGroupBox.Text = "Add New Player";
             // 
             // firstNameValue
             // 
@@ -173,13 +173,13 @@ namespace TrackerUI
             this.emailAddressLabel.Text = "Email Address";
             this.emailAddressLabel.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox2
+            // emailAddressValue
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(13, 200);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(313, 33);
-            this.textBox2.TabIndex = 14;
+            this.emailAddressValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.emailAddressValue.Location = new System.Drawing.Point(13, 200);
+            this.emailAddressValue.Name = "emailAddressValue";
+            this.emailAddressValue.Size = new System.Drawing.Size(313, 33);
+            this.emailAddressValue.TabIndex = 14;
             // 
             // lastNameLabel
             // 
@@ -192,24 +192,24 @@ namespace TrackerUI
             this.lastNameLabel.TabIndex = 13;
             this.lastNameLabel.Text = "Last Name";
             // 
-            // textBox3
+            // cellphoneValue
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(13, 269);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(313, 33);
-            this.textBox3.TabIndex = 16;
+            this.cellphoneValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cellphoneValue.Location = new System.Drawing.Point(13, 269);
+            this.cellphoneValue.Name = "cellphoneValue";
+            this.cellphoneValue.Size = new System.Drawing.Size(313, 33);
+            this.cellphoneValue.TabIndex = 16;
             // 
-            // cellphoneNumberLabel
+            // cellphoneLabel
             // 
-            this.cellphoneNumberLabel.AutoSize = true;
-            this.cellphoneNumberLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cellphoneNumberLabel.ForeColor = System.Drawing.Color.SkyBlue;
-            this.cellphoneNumberLabel.Location = new System.Drawing.Point(13, 236);
-            this.cellphoneNumberLabel.Name = "cellphoneNumberLabel";
-            this.cellphoneNumberLabel.Size = new System.Drawing.Size(106, 30);
-            this.cellphoneNumberLabel.TabIndex = 15;
-            this.cellphoneNumberLabel.Text = "Cellphone";
+            this.cellphoneLabel.AutoSize = true;
+            this.cellphoneLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cellphoneLabel.ForeColor = System.Drawing.Color.SkyBlue;
+            this.cellphoneLabel.Location = new System.Drawing.Point(13, 236);
+            this.cellphoneLabel.Name = "cellphoneLabel";
+            this.cellphoneLabel.Size = new System.Drawing.Size(106, 30);
+            this.cellphoneLabel.TabIndex = 15;
+            this.cellphoneLabel.Text = "Cellphone";
             // 
             // createPlayerButton
             // 
@@ -278,7 +278,7 @@ namespace TrackerUI
             this.Controls.Add(this.createTeamButton);
             this.Controls.Add(this.removePlayerButton);
             this.Controls.Add(this.playersListBox);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.createPlayerGroupBox);
             this.Controls.Add(this.addPlayerButton);
             this.Controls.Add(this.selectPlayerDropDown);
             this.Controls.Add(this.selectPlayerLabel);
@@ -288,8 +288,8 @@ namespace TrackerUI
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "CreateTeamForm";
             this.Text = "Create Team";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.createPlayerGroupBox.ResumeLayout(false);
+            this.createPlayerGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,10 +303,10 @@ namespace TrackerUI
         private System.Windows.Forms.Button addPlayerButton;
         private System.Windows.Forms.ComboBox selectPlayerDropDown;
         private System.Windows.Forms.Label selectPlayerLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label cellphoneNumberLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox createPlayerGroupBox;
+        private System.Windows.Forms.TextBox cellphoneValue;
+        private System.Windows.Forms.Label cellphoneLabel;
+        private System.Windows.Forms.TextBox emailAddressValue;
         private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.TextBox lastNameValue;
         private System.Windows.Forms.Label emailAddressLabel;

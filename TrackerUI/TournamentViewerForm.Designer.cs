@@ -41,7 +41,6 @@ namespace TrackerUI
             this.teamTwoScoreValue = new System.Windows.Forms.TextBox();
             this.teamTwoScoreLabel = new System.Windows.Forms.Label();
             this.teamTwoNameLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.versusLabel = new System.Windows.Forms.Label();
             this.saveScoreButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -169,14 +168,6 @@ namespace TrackerUI
             this.teamTwoNameLabel.TabIndex = 9;
             this.teamTwoNameLabel.Text = "< team two >";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(487, 261);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 30);
-            this.label1.TabIndex = 12;
-            // 
             // versusLabel
             // 
             this.versusLabel.AutoSize = true;
@@ -213,7 +204,6 @@ namespace TrackerUI
             this.ClientSize = new System.Drawing.Size(703, 497);
             this.Controls.Add(this.saveScoreButton);
             this.Controls.Add(this.versusLabel);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.teamTwoScoreValue);
             this.Controls.Add(this.teamTwoScoreLabel);
             this.Controls.Add(this.teamTwoNameLabel);
@@ -249,7 +239,6 @@ namespace TrackerUI
         private System.Windows.Forms.TextBox teamTwoScoreValue;
         private System.Windows.Forms.Label teamTwoScoreLabel;
         private System.Windows.Forms.Label teamTwoNameLabel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label versusLabel;
         private System.Windows.Forms.Button saveScoreButton;
     }
