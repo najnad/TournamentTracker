@@ -8,6 +8,11 @@ namespace TrackerLibrary
     {
         public static List<IDataConnection> Connections { get; private set; } = new List<IDataConnection>();
 
+        /// <summary>
+        /// Initializes sql database and/or text file database.
+        /// </summary>
+        /// <param name="database">bool: true if sql database exists.</param>
+        /// <param name="textFiles">bool: true if text file database exists.</param>
         public static void InitializeConnections(bool database, bool textFiles)
         {
             if (database)
