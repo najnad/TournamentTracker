@@ -6,6 +6,12 @@ namespace TrackerLibrary.Models
 {
     public class PersonModel
     {
+
+        /// <summary>
+        /// Primary key for the prize.
+        /// </summary>
+        public int Id { get; set; }
+
         /// <summary>
         /// Represents a person's first name.
         /// </summary>
@@ -25,5 +31,16 @@ namespace TrackerLibrary.Models
         /// Represents a person's cellphone number.
         /// </summary>
         public string CellphoneNumber { get; set; }
+
+        /// <summary>
+        /// Used to display a person's full name.
+        /// </summary>
+        public string FullName
+        {
+            get
+            {
+                return $"{ FirstName } { LastName }";
+            }
+        }
     }
 }
