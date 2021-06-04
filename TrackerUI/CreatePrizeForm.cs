@@ -18,6 +18,11 @@ namespace TrackerUI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Click function that triggers CreatePrize in the respective connector classes.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
             if (ValidateForm())
@@ -41,6 +46,10 @@ namespace TrackerUI
             }
         }
 
+        /// <summary>
+        /// Validates the fields in the Create Prize form.
+        /// </summary>
+        /// <returns>True; if data is valid.</returns>
         private bool ValidateForm()
         {
             bool output = true;
