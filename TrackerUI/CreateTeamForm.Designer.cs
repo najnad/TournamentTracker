@@ -36,15 +36,15 @@ namespace TrackerUI
             this.selectPlayerDropDown = new System.Windows.Forms.ComboBox();
             this.selectPlayerLabel = new System.Windows.Forms.Label();
             this.createPlayerGroupBox = new System.Windows.Forms.GroupBox();
-            this.firstNameValue = new System.Windows.Forms.TextBox();
-            this.firstNameLabel = new System.Windows.Forms.Label();
-            this.lastNameValue = new System.Windows.Forms.TextBox();
-            this.emailAddressLabel = new System.Windows.Forms.Label();
-            this.emailAddressValue = new System.Windows.Forms.TextBox();
-            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.createPlayerButton = new System.Windows.Forms.Button();
             this.cellphoneValue = new System.Windows.Forms.TextBox();
             this.cellphoneLabel = new System.Windows.Forms.Label();
-            this.createPlayerButton = new System.Windows.Forms.Button();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.lastNameValue = new System.Windows.Forms.TextBox();
+            this.emailAddressValue = new System.Windows.Forms.TextBox();
+            this.emailAddressLabel = new System.Windows.Forms.Label();
+            this.firstNameValue = new System.Windows.Forms.TextBox();
+            this.firstNameLabel = new System.Windows.Forms.Label();
             this.playersListBox = new System.Windows.Forms.ListBox();
             this.removePlayerButton = new System.Windows.Forms.Button();
             this.createTeamButton = new System.Windows.Forms.Button();
@@ -95,6 +95,7 @@ namespace TrackerUI
             this.addPlayerButton.TabIndex = 53;
             this.addPlayerButton.Text = "Add Player";
             this.addPlayerButton.UseVisualStyleBackColor = false;
+            this.addPlayerButton.Click += new System.EventHandler(this.addPlayerButton_Click);
             // 
             // selectPlayerDropDown
             // 
@@ -134,63 +135,22 @@ namespace TrackerUI
             this.createPlayerGroupBox.TabStop = false;
             this.createPlayerGroupBox.Text = "Add New Player";
             // 
-            // firstNameValue
+            // createPlayerButton
             // 
-            this.firstNameValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.firstNameValue.Location = new System.Drawing.Point(13, 62);
-            this.firstNameValue.Name = "firstNameValue";
-            this.firstNameValue.Size = new System.Drawing.Size(313, 33);
-            this.firstNameValue.TabIndex = 10;
-            // 
-            // firstNameLabel
-            // 
-            this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.firstNameLabel.ForeColor = System.Drawing.Color.SkyBlue;
-            this.firstNameLabel.Location = new System.Drawing.Point(13, 29);
-            this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(113, 30);
-            this.firstNameLabel.TabIndex = 9;
-            this.firstNameLabel.Text = "First Name";
-            // 
-            // lastNameValue
-            // 
-            this.lastNameValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lastNameValue.Location = new System.Drawing.Point(13, 131);
-            this.lastNameValue.Name = "lastNameValue";
-            this.lastNameValue.Size = new System.Drawing.Size(313, 33);
-            this.lastNameValue.TabIndex = 12;
-            // 
-            // emailAddressLabel
-            // 
-            this.emailAddressLabel.AutoSize = true;
-            this.emailAddressLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.emailAddressLabel.ForeColor = System.Drawing.Color.SkyBlue;
-            this.emailAddressLabel.Location = new System.Drawing.Point(13, 167);
-            this.emailAddressLabel.Name = "emailAddressLabel";
-            this.emailAddressLabel.Size = new System.Drawing.Size(143, 30);
-            this.emailAddressLabel.TabIndex = 11;
-            this.emailAddressLabel.Text = "Email Address";
-            this.emailAddressLabel.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // emailAddressValue
-            // 
-            this.emailAddressValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.emailAddressValue.Location = new System.Drawing.Point(13, 200);
-            this.emailAddressValue.Name = "emailAddressValue";
-            this.emailAddressValue.Size = new System.Drawing.Size(313, 33);
-            this.emailAddressValue.TabIndex = 14;
-            // 
-            // lastNameLabel
-            // 
-            this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lastNameLabel.ForeColor = System.Drawing.Color.SkyBlue;
-            this.lastNameLabel.Location = new System.Drawing.Point(13, 98);
-            this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(112, 30);
-            this.lastNameLabel.TabIndex = 13;
-            this.lastNameLabel.Text = "Last Name";
+            this.createPlayerButton.BackColor = System.Drawing.Color.White;
+            this.createPlayerButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.createPlayerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.createPlayerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.createPlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createPlayerButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.createPlayerButton.ForeColor = System.Drawing.Color.SkyBlue;
+            this.createPlayerButton.Location = new System.Drawing.Point(13, 308);
+            this.createPlayerButton.Name = "createPlayerButton";
+            this.createPlayerButton.Size = new System.Drawing.Size(313, 38);
+            this.createPlayerButton.TabIndex = 51;
+            this.createPlayerButton.Text = "Create Player";
+            this.createPlayerButton.UseVisualStyleBackColor = false;
+            this.createPlayerButton.Click += new System.EventHandler(this.createPlayerButton_Click);
             // 
             // cellphoneValue
             // 
@@ -211,21 +171,62 @@ namespace TrackerUI
             this.cellphoneLabel.TabIndex = 15;
             this.cellphoneLabel.Text = "Cellphone";
             // 
-            // createPlayerButton
+            // lastNameLabel
             // 
-            this.createPlayerButton.BackColor = System.Drawing.Color.White;
-            this.createPlayerButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.createPlayerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.createPlayerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.createPlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createPlayerButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.createPlayerButton.ForeColor = System.Drawing.Color.SkyBlue;
-            this.createPlayerButton.Location = new System.Drawing.Point(13, 308);
-            this.createPlayerButton.Name = "createPlayerButton";
-            this.createPlayerButton.Size = new System.Drawing.Size(313, 38);
-            this.createPlayerButton.TabIndex = 51;
-            this.createPlayerButton.Text = "Create Player";
-            this.createPlayerButton.UseVisualStyleBackColor = false;
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lastNameLabel.ForeColor = System.Drawing.Color.SkyBlue;
+            this.lastNameLabel.Location = new System.Drawing.Point(13, 98);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(112, 30);
+            this.lastNameLabel.TabIndex = 13;
+            this.lastNameLabel.Text = "Last Name";
+            // 
+            // lastNameValue
+            // 
+            this.lastNameValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lastNameValue.Location = new System.Drawing.Point(13, 131);
+            this.lastNameValue.Name = "lastNameValue";
+            this.lastNameValue.Size = new System.Drawing.Size(313, 33);
+            this.lastNameValue.TabIndex = 12;
+            // 
+            // emailAddressValue
+            // 
+            this.emailAddressValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.emailAddressValue.Location = new System.Drawing.Point(13, 200);
+            this.emailAddressValue.Name = "emailAddressValue";
+            this.emailAddressValue.Size = new System.Drawing.Size(313, 33);
+            this.emailAddressValue.TabIndex = 14;
+            // 
+            // emailAddressLabel
+            // 
+            this.emailAddressLabel.AutoSize = true;
+            this.emailAddressLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.emailAddressLabel.ForeColor = System.Drawing.Color.SkyBlue;
+            this.emailAddressLabel.Location = new System.Drawing.Point(13, 167);
+            this.emailAddressLabel.Name = "emailAddressLabel";
+            this.emailAddressLabel.Size = new System.Drawing.Size(143, 30);
+            this.emailAddressLabel.TabIndex = 11;
+            this.emailAddressLabel.Text = "Email Address";
+            // 
+            // firstNameValue
+            // 
+            this.firstNameValue.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.firstNameValue.Location = new System.Drawing.Point(13, 62);
+            this.firstNameValue.Name = "firstNameValue";
+            this.firstNameValue.Size = new System.Drawing.Size(313, 33);
+            this.firstNameValue.TabIndex = 10;
+            // 
+            // firstNameLabel
+            // 
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.firstNameLabel.ForeColor = System.Drawing.Color.SkyBlue;
+            this.firstNameLabel.Location = new System.Drawing.Point(13, 29);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(113, 30);
+            this.firstNameLabel.TabIndex = 9;
+            this.firstNameLabel.Text = "First Name";
             // 
             // playersListBox
             // 
@@ -252,6 +253,7 @@ namespace TrackerUI
             this.removePlayerButton.TabIndex = 57;
             this.removePlayerButton.Text = "Remove Player";
             this.removePlayerButton.UseVisualStyleBackColor = false;
+            this.removePlayerButton.Click += new System.EventHandler(this.removePlayerButton_Click);
             // 
             // createTeamButton
             // 
@@ -274,7 +276,7 @@ namespace TrackerUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(818, 673);
+            this.ClientSize = new System.Drawing.Size(818, 676);
             this.Controls.Add(this.createTeamButton);
             this.Controls.Add(this.removePlayerButton);
             this.Controls.Add(this.playersListBox);
