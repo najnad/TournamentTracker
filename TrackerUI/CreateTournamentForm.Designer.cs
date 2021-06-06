@@ -79,7 +79,6 @@ namespace TrackerUI
             this.removePrizeButton.TabIndex = 57;
             this.removePrizeButton.Text = "Remove Prize";
             this.removePrizeButton.UseVisualStyleBackColor = false;
-            this.removePrizeButton.Click += new System.EventHandler(this.removePrizeButton_Click);
             // 
             // removeTeamButton
             // 
@@ -96,7 +95,6 @@ namespace TrackerUI
             this.removeTeamButton.TabIndex = 56;
             this.removeTeamButton.Text = "Remove Team";
             this.removeTeamButton.UseVisualStyleBackColor = false;
-            this.removeTeamButton.Click += new System.EventHandler(this.removeTeamButton_Click);
             // 
             // prizesListBox
             // 
@@ -155,7 +153,6 @@ namespace TrackerUI
             this.createPrizeButton.TabIndex = 51;
             this.createPrizeButton.Text = "Create Prize";
             this.createPrizeButton.UseVisualStyleBackColor = false;
-            this.createPrizeButton.Click += new System.EventHandler(this.createPrizeButton_Click);
             // 
             // addTeamButton
             // 
@@ -172,7 +169,6 @@ namespace TrackerUI
             this.addTeamButton.TabIndex = 50;
             this.addTeamButton.Text = "Add Team";
             this.addTeamButton.UseVisualStyleBackColor = false;
-            this.addTeamButton.Click += new System.EventHandler(this.addTeamButton_Click);
             // 
             // createTeamLink
             // 
@@ -184,7 +180,6 @@ namespace TrackerUI
             this.createTeamLink.TabIndex = 49;
             this.createTeamLink.TabStop = true;
             this.createTeamLink.Text = "Create New Team";
-            this.createTeamLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.createTeamLink_LinkClicked);
             // 
             // selectTeamDropDown
             // 
