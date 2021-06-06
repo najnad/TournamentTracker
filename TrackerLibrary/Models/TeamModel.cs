@@ -6,6 +6,8 @@ namespace TrackerLibrary.Models
 {
     public class TeamModel
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// A list of people on the team.
         /// </summary>
