@@ -23,6 +23,9 @@ namespace TrackerUI
             WireUpLists();
         }
 
+        /// <summary>
+        /// Refreshes the list.
+        /// </summary>
         private void WireUpLists()
         {
             selectTeamDropDown.DataSource = null;
@@ -38,6 +41,11 @@ namespace TrackerUI
             prizesListBox.DisplayMember = "PlaceName";
         }
 
+        /// <summary>
+        /// Adds selected team from the dropdown into the list box.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void addTeamButton_Click(object sender, EventArgs e)
         {
             TeamModel t = (TeamModel)selectTeamDropDown.SelectedItem;
@@ -51,6 +59,11 @@ namespace TrackerUI
             }
         }
 
+        /// <summary>
+        /// Launches CreatePrizeForm.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
             // Call the create prize form
@@ -58,6 +71,10 @@ namespace TrackerUI
             frm.Show();
         }
 
+        /// <summary>
+        /// Receives data from CreatePrizeForm and displays into prize list box.
+        /// </summary>
+        /// <param name="model">A PrizeModel object.</param>
         public void PrizeComplete(PrizeModel model)
         {
             // Display prize model in list box
@@ -65,6 +82,11 @@ namespace TrackerUI
             WireUpLists();
         }
 
+        /// <summary>
+        /// Launches CreateTeamForm.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void createTeamLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Call the create team form
@@ -72,12 +94,21 @@ namespace TrackerUI
             frm.Show();
         }
 
+        /// <summary>
+        /// Receives data from CreateTeamForm and displays into teams list box.
+        /// </summary>
+        /// <param name="model">A TeamModel objext.</param>
         public void TeamComplete(TeamModel model)
         {
             selectedTeams.Add(model);
             WireUpLists();
         }
 
+        /// <summary>
+        /// Removes selected team from list box and adds it into available teams.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void removeTeamButton_Click(object sender, EventArgs e)
         {
             TeamModel t = (TeamModel)TeamsPlayersListBox.SelectedItem;
@@ -91,6 +122,11 @@ namespace TrackerUI
             }
         }
 
+        /// <summary>
+        /// Removes selected prize from list box.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void removePrizeButton_Click(object sender, EventArgs e)
         {
             PrizeModel p = (PrizeModel)prizesListBox.SelectedItem;

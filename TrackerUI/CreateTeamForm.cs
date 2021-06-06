@@ -150,6 +150,11 @@ namespace TrackerUI
             }
         }
 
+        /// <summary>
+        /// Creates a new team.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
         private void createTeamButton_Click(object sender, EventArgs e)
         {
             TeamModel t = new TeamModel();
