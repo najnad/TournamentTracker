@@ -46,7 +46,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
         /// Converts the List<string> from the LoadFile() method into a List<PrizeModel>.
         /// </summary>
         /// <param name="lines">output from LoadFile()</param>
-        /// <returns>A list of PrizeModel</returns>
+        /// <returns>A list of PrizeModel.</returns>
         public static List<PrizeModel> ConvertToPrizeModels(this List<string> lines)
         {
             List<PrizeModel> output = new List<PrizeModel>();
@@ -68,6 +68,11 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             return output;
         }
 
+        /// <summary>
+        /// Converts the List<string> from the LoadFile() method into a List<PersonModel>.
+        /// </summary>
+        /// <param name="lines">output from LoadFile()</param>
+        /// <returns>A list of PersonModel.</returns>
         public static List<PersonModel> ConvertToPersonModels(this List<string> lines)
         {
             List<PersonModel> output = new List<PersonModel>();
@@ -89,6 +94,11 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             return output;
         }
 
+        /// <summary>
+        /// Converts the List<string> from the LoadFile() method into a List<TeamModel>.
+        /// </summary>
+        /// <param name="lines">output from LoadFile()</param>
+        /// <returns>A list of TeamModel.</returns>
         public static List<TeamModel> ConvertToTeamModels(this List<string> lines, string peopleFileName)
         {
             // id, team name, list of ids sep. by pipes.
@@ -120,9 +130,178 @@ namespace TrackerLibrary.DataAccess.TextHelpers
         }
 
         /// <summary>
-        /// Saves data into Prize file database.
+        /// Converts the List<string> from the LoadFile() method into a List<TournamentModel>.
         /// </summary>
-        /// <param name="models">Output from ConvertToPrizeModels()</param>
+        /// <param name="lines">output from LoadFile()</param>
+        /// <param name="teamFileName">File</param>
+        /// <param name="peopleFileName">File</param>
+        /// <param name="prizeFileName">File</param>
+        /// <returns></returns>
+        public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines, string teamFileName, string peopleFileName, string prizeFileName)
+        {
+            //id,TournamentName,EntryFee,(id|id|id - EnteredTeams),(id|id|id - Prizes),(Rounds - id^id^id|id^id^id|id^id^id)
+            List<TournamentModel> output = new List<TournamentModel>();
+            List<TeamModel> teams = teamFileName.FullFilePath().LoadFile().ConvertToTeamModels(peopleFileName);
+            List<PrizeModel> prizes = prizeFileName.FullFilePath().LoadFile().ConvertToPrizeModels();
+
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                TournamentModel tm = new TournamentModel();
+                tm.Id = int.Parse(cols[0]);
+                tm.TournamentName = cols[1];
+                tm.EntryFee = decimal.Parse(cols[2]);
+
+                string[] teamIds = cols[3].Split('|');
+
+                foreach (string id in teamIds)
+                {
+                    tm.EnteredTeams.Add(teams.Where(x => x.Id == int.Parse(id)).First());
+                }
+
+                string[] prizeIds = cols[4].Split('|');
+
+                foreach (string id in prizeIds)
+                {
+                    tm.Prizes.Add(prizes.Where(x => x.Id == int.Parse(id)).First());
+                }
+
+                // TODO - Rounds Text Connector Processor
+
+                output.Add(tm);
+            }
+
+            return output;
+        }
+
+        /// <summary>
+        /// Saves a tournament into a text file database.
+        /// </summary>
+        /// <param name="models">List<TournamentModel></param>
+        /// <param name="fileName">File</param>
+        public static void SaveToTournamentFile(this List<TournamentModel> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (TournamentModel tm in models)
+            {
+                lines.Add($@"{ tm.Id },
+                    { tm.TournamentName },
+                    { tm.EntryFee },
+                    { ConvertTeamListToString(tm.EnteredTeams) },
+                    { ConvertPrizeListToString(tm.Prizes) },
+                    { ConvertRoundListToString(tm.Rounds) }");
+            }
+
+            File.WriteAllLines(fileName.FullFilePath(), lines);
+
+        }
+
+        /// <summary>
+        /// Helper method for SaveToTournamentFile().
+        /// Convers rounds list to string.
+        /// </summary>
+        /// <param name="rounds">List<List<MatchupModel>></param>
+        /// <returns>A string</returns>
+        private static string ConvertRoundListToString(List<List<MatchupModel>> rounds)
+        {
+            string output = "";
+
+            if (rounds.Count == 0)
+            {
+                return "";
+            }
+
+            foreach (List<MatchupModel> r in rounds)
+            {
+                output += $"{ ConvertMatchupListToString(r) }|";
+            }
+
+            output = output.Substring(0, output.Length - 1);
+
+            return output;
+        }
+
+        /// <summary>
+        /// Helper method for ConvertRoundListToString().
+        /// Convers matchup list to string.
+        /// </summary>
+        /// <param name="matchups">List<MatchupModel></param>
+        /// <returns>A string</returns>
+        private static string ConvertMatchupListToString(List<MatchupModel> matchups)
+        {
+            string output = "";
+
+            if (matchups.Count == 0)
+            {
+                return "";
+            }
+
+            foreach (MatchupModel m in matchups)
+            {
+                output += $"{ m.Id }^";
+            }
+
+            output = output.Substring(0, output.Length - 1);
+
+            return output;
+        }
+
+        /// <summary>
+        /// Helper method for SaveToTournamentFile().
+        /// Convers prize list to string.
+        /// </summary>
+        /// <param name="prizes">List<PrizeModel></param>
+        /// <returns>A string</returns>
+        private static string ConvertPrizeListToString(List<PrizeModel> prizes)
+        {
+            string output = "";
+
+            if (prizes.Count == 0)
+            {
+                return "";
+            }
+
+            foreach (PrizeModel p in prizes)
+            {
+                output += $"{ p.Id }|";
+            }
+
+            output = output.Substring(0, output.Length - 1);
+
+            return output;
+        }
+
+        /// <summary>
+        /// Helper method for SaveToTournamentFile().
+        /// Convers team list to string.
+        /// </summary>
+        /// <param name="teams">List<TeamModel></param>
+        /// <returns>A string</returns>
+        private static string ConvertTeamListToString(List<TeamModel> teams)
+        {
+            string output = "";
+
+            if (teams.Count == 0)
+            {
+                return "";
+            }
+
+            foreach (TeamModel t in teams)
+            {
+                output += $"{ t.Id }|";
+            }
+
+            output = output.Substring(0, output.Length - 1);
+
+            return output;
+        }
+
+        /// <summary>
+        /// Saves data into a text file database.
+        /// </summary>
+        /// <param name="models">List<PrizeModel></param>
         /// <param name="fileName">File</param>
         public static void SaveToPrizeFile(this List<PrizeModel> models, string fileName)
         {
@@ -136,6 +315,11 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
 
+        /// <summary>
+        /// Saves a player into text file database.
+        /// </summary>
+        /// <param name="models">List<PersonModel></param>
+        /// <param name="fileName">File</param>
         public static void SaveToPeopleFile(this List<PersonModel> models, string fileName)
         {
             List<string> lines = new List<string>();
@@ -148,6 +332,11 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
 
+        /// <summary>
+        /// Saves a team into text file database.
+        /// </summary>
+        /// <param name="models">List<TeamModel></param>
+        /// <param name="fileName">File</param>
         public static void SaveToTeamFile(this List<TeamModel> models, string fileName)
         {
             List<string> lines = new List<string>();
@@ -160,6 +349,12 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
 
+        /// <summary>
+        /// Helper method for SaveToTeamFile().
+        /// Convers people list to string.
+        /// </summary>
+        /// <param name="people">List<PersonModel></param>
+        /// <returns>A string</returns>
         private static string ConvertPeopleListToString(List<PersonModel> people)
         {
             string output = "";

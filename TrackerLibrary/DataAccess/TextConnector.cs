@@ -12,7 +12,7 @@ namespace TrackerLibrary.DataAccess
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PersonModels.csv";
         private const string TeamFile = "TeamModels.csv";
-
+        private const string TournamentFile = "TournamentModels.csv";
 
         /// <summary>
         /// Saves a player to the text file database.
@@ -72,6 +72,11 @@ namespace TrackerLibrary.DataAccess
             return model;
         }
 
+        /// <summary>
+        /// Saves a team into the text database.
+        /// </summary>
+        /// <param name="model">A TeamModel object</param>
+        /// <returns>A TeamModel object, inlcuding its properties.</returns>
         public TeamModel CreateTeam(TeamModel model)
         {
             List<TeamModel> teams = TeamFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
@@ -94,6 +99,32 @@ namespace TrackerLibrary.DataAccess
         }
 
         /// <summary>
+        /// Saves a tournament into the text database.
+        /// </summary>
+        /// <param name="model">A TournamentModel object</param>
+        public void CreateTournament(TournamentModel model)
+        {
+            List<TournamentModel> tournaments = TournamentFile
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToTournamentModels(TeamFile, PeopleFile, PrizesFile);
+
+            // Find the max ID
+            int currentId = 1;
+
+            if (tournaments.Count > 0)
+            {
+                currentId = tournaments.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+
+            tournaments.Add(model);
+
+            tournaments.SaveToTournamentFile(TournamentFile);
+        }
+
+        /// <summary>
         /// Gets all person models in the text database.
         /// </summary>
         /// <returns>A list of PersonModel.</returns>
@@ -102,6 +133,10 @@ namespace TrackerLibrary.DataAccess
             return PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
         }
 
+        /// <summary>
+        /// Gets all team models in the text database.
+        /// </summary>
+        /// <returns>A list of TeamModel.</returns>
         public List<TeamModel> GetTeam_All()
         {
             return TeamFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
