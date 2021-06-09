@@ -26,15 +26,6 @@ namespace TrackerUI
             WireUpLists();
         }
 
-        private void CreateSampleData()
-        {
-            availableTeamMembers.Add(new PersonModel { FirstName = "Dan", LastName = "Chu" });
-            availableTeamMembers.Add(new PersonModel { FirstName = "Bob", LastName = "Marley" });
-
-            selectedTeamMembers.Add(new PersonModel { FirstName = "Jack", LastName = "Black" });
-            selectedTeamMembers.Add(new PersonModel { FirstName = "Tim", LastName = "Bo" });
-        }
-
         /// <summary>
         /// Refreshes the list.
         /// </summary>
