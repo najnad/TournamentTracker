@@ -138,5 +138,44 @@ namespace TrackerUI
                 WireUpLists();
             }
         }
+
+        /// <summary>
+        /// Validates form data.
+        /// Click function that triggers CreateTournament() in the respective connector classes.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
+        private void createTournamentButton_Click(object sender, EventArgs e)
+        {
+            // Validate data
+            decimal fee = 0;
+
+            bool feeValid = decimal.TryParse(entryFeeValue.Text, out fee);
+
+            if (!feeValid)
+            {
+                MessageBox.Show("Entry Fee Invalid.", 
+                    "Invalid Fee", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            TournamentModel tm = new TournamentModel();
+
+            tm.TournamentName = tournamentNameValue.Text;
+            tm.EntryFee = fee;
+
+            tm.Prizes = selectedPrizes;
+            tm.EnteredTeams = selectedTeams;
+
+            // Create matchups
+            TournamentLogic.CreateRounds(tm);
+
+            // Create Tournament entry
+            // Create prize entries
+            // Create team entries
+            GlobalConfig.Connection.CreateTournament(tm);
+        }
     }
 }
