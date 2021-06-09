@@ -7,6 +7,11 @@ namespace TrackerLibrary.Models
     public class TournamentModel
     {
         /// <summary>
+        /// Primary key for the tournament.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Represents the tournament name.
         /// </summary>
         /// <example>

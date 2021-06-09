@@ -8,7 +8,7 @@ namespace TrackerLibrary.Models
     {
 
         /// <summary>
-        /// Primary key for the prize.
+        /// Primary key for the person.
         /// </summary>
         public int Id { get; set; }
 

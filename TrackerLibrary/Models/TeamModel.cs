@@ -6,6 +6,9 @@ namespace TrackerLibrary.Models
 {
     public class TeamModel
     {
+        /// <summary>
+        /// Primary key for the team.
+        /// </summary>
         public int Id { get; set; }
 
         /// <summary>
