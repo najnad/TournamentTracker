@@ -154,5 +154,14 @@ namespace TrackerLibrary.DataAccess
         {
             return TournamentFile.FullFilePath().LoadFile().ConvertToTournamentModels(TeamFile, PeopleFile, PrizesFile);
         }
+
+        /// <summary>
+        /// Updates Matchup data in text file database.
+        /// </summary>
+        /// <param name="model"></param>
+        public void UpdateMatchup(MatchupModel model)
+        {
+            model.UpdateMatchupToFile();
+        }
     }
 }
