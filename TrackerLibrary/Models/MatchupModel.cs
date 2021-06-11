@@ -30,5 +30,37 @@ namespace TrackerLibrary.Models
         /// Represents the round the matchup is being played at.
         /// </summary>
         public int MatchupRound { get; set; }
+
+        /// <summary>
+        /// Property used to display teams competing.
+        /// </summary>
+        public string DisplayName
+        {
+            get
+            {
+                string output = "";
+                foreach (MatchupEntryModel entry in Entries)
+                {
+                    if (entry.TeamCompeting != null)
+                    {
+                        if (output.Length == 0)
+                        {
+                            output = entry.TeamCompeting.TeamName;
+                        }
+                        else
+                        {
+                            output += $" vs. { entry.TeamCompeting.TeamName}";
+                        } 
+                    }
+                    else
+                    {
+                        output = "Match TBD";
+                        break;
+                    }
+                }
+
+                return output;
+            }
+        }
     }
 }
