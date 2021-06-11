@@ -40,5 +40,17 @@ namespace TrackerUI
             CreateTournamentForm frm = new CreateTournamentForm();
             frm.Show();
         }
+
+        /// <summary>
+        /// Launches TournamentViewer form.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
+        private void loadTournamentButton_Click(object sender, EventArgs e)
+        {
+            TournamentModel tm = (TournamentModel) loadExistingTournamentDropDown.SelectedItem;
+            TournamentViewerForm frm = new TournamentViewerForm(tm);
+            frm.Show();
+        }
     }
 }
