@@ -77,7 +77,6 @@ namespace TrackerUI
             this.roundLabel.Size = new System.Drawing.Size(94, 37);
             this.roundLabel.TabIndex = 2;
             this.roundLabel.Text = "Round";
-            this.roundLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // roundDropDown
             // 
@@ -86,6 +85,7 @@ namespace TrackerUI
             this.roundDropDown.Name = "roundDropDown";
             this.roundDropDown.Size = new System.Drawing.Size(250, 38);
             this.roundDropDown.TabIndex = 3;
+            this.roundDropDown.SelectedIndexChanged += new System.EventHandler(this.roundDropDown_SelectedIndexChanged);
             // 
             // unplayedOnlyCheckBox
             // 
@@ -99,6 +99,7 @@ namespace TrackerUI
             this.unplayedOnlyCheckBox.TabIndex = 4;
             this.unplayedOnlyCheckBox.Text = "Unplayed Only";
             this.unplayedOnlyCheckBox.UseVisualStyleBackColor = true;
+            this.unplayedOnlyCheckBox.CheckedChanged += new System.EventHandler(this.unplayedOnlyCheckBox_CheckedChanged);
             // 
             // matchupListBox
             // 
@@ -109,6 +110,7 @@ namespace TrackerUI
             this.matchupListBox.Name = "matchupListBox";
             this.matchupListBox.Size = new System.Drawing.Size(350, 302);
             this.matchupListBox.TabIndex = 5;
+            this.matchupListBox.SelectedIndexChanged += new System.EventHandler(this.matchupListBox_SelectedIndexChanged);
             // 
             // teamOneNameLabel
             // 
@@ -178,7 +180,6 @@ namespace TrackerUI
             this.versusLabel.Size = new System.Drawing.Size(42, 32);
             this.versusLabel.TabIndex = 13;
             this.versusLabel.Text = "VS";
-            this.versusLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // saveScoreButton
             // 
@@ -195,6 +196,7 @@ namespace TrackerUI
             this.saveScoreButton.TabIndex = 14;
             this.saveScoreButton.Text = "Save Score";
             this.saveScoreButton.UseVisualStyleBackColor = false;
+            this.saveScoreButton.Click += new System.EventHandler(this.saveScoreButton_Click);
             // 
             // TournamentViewerForm
             // 
@@ -219,7 +221,6 @@ namespace TrackerUI
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "TournamentViewerForm";
             this.Text = "Tournament Viewer";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
