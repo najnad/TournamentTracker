@@ -189,6 +189,35 @@ namespace TrackerUI
             LoadMatchups((int)roundDropDown.SelectedItem);
         }
 
+        private string ValidateData()
+        {
+            string output = "";
+
+            double teamOneScore = 0;
+            double teamTwoScore = 0;
+            bool scoreOneValid = double.TryParse(teamOneScoreValue.Text, out teamOneScore);
+            bool scoreTwoValid = double.TryParse(teamTwoScoreValue.Text, out teamTwoScore);
+
+            if (!scoreOneValid)
+            {
+                output = "Team one score invalid. Check data and try again.";
+            }
+            else if (!scoreTwoValid)
+            {
+                output = "Team two score invalid. Check data and try again.";
+            }
+            else if (teamOneScore == 0 && teamTwoScore == 0)
+            {
+                output = "No score entered. Check data and try again.";
+            }
+            else if (teamOneScore == teamTwoScore)
+            {
+                output = "System does not allow tie games.";
+            }
+
+            return output;
+        }
+
         /// <summary>
         /// Saves the match entries into respective databases.
         /// </summary>
@@ -196,6 +225,13 @@ namespace TrackerUI
         /// <param name="e">Unusedddd</param>
         private void saveScoreButton_Click(object sender, EventArgs e)
         {
+            string errorMsg = ValidateData();
+            if (errorMsg.Length > 0)
+            {
+                MessageBox.Show(errorMsg);
+                return;
+            }
+
             MatchupModel m = (MatchupModel)matchupListBox.SelectedItem;
             double teamOneScore = 0;
             double teamTwoScore = 0;
@@ -239,40 +275,17 @@ namespace TrackerUI
                 }
             }
 
-            if (teamOneScore > teamTwoScore)
+            try
             {
-                m.Winner = m.Entries[0].TeamCompeting;
+                TournamentLogic.UpdateTournamentResults(tournament);
             }
-            else if (teamTwoScore > teamOneScore)
+            catch (Exception ex)
             {
-                m.Winner = m.Entries[1].TeamCompeting;
-            }
-            else
-            {
-                MessageBox.Show("Tie games are not allowed.");
-            }
-
-            foreach (List<MatchupModel> round in tournament.Rounds)
-            {
-                foreach (MatchupModel rm in round)
-                {
-                    foreach (MatchupEntryModel me in rm.Entries)
-                    {
-                        if (me.ParentMatchup != null)
-                        {
-                            if (me.ParentMatchup.Id == m.Id)
-                            {
-                                me.TeamCompeting = m.Winner;
-                                GlobalConfig.Connection.UpdateMatchup(rm);
-                            } 
-                        }
-                    }
-                }
+                MessageBox.Show($"Error: { ex.Message }");
+                return;
             }
 
             LoadMatchups((int)roundDropDown.SelectedItem);
-
-            GlobalConfig.Connection.UpdateMatchup(m);
         }
     }
 }
