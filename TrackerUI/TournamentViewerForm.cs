@@ -189,6 +189,10 @@ namespace TrackerUI
             LoadMatchups((int)roundDropDown.SelectedItem);
         }
 
+        /// <summary>
+        /// Validates score fields.
+        /// </summary>
+        /// <returns>Corresponding error; if exists.</returns>
         private string ValidateData()
         {
             string output = "";
