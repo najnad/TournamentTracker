@@ -153,7 +153,7 @@ namespace TrackerUI
             t.TeamName = teamNameValue.Text;
             t.TeamMembers = selectedTeamMembers;
 
-            t = GlobalConfig.Connection.CreateTeam(t);
+            GlobalConfig.Connection.CreateTeam(t);
 
             callingForm.TeamComplete(t);
 
