@@ -1,2 +1,2 @@
 # TournamentTracker
-Project that introduces me to .NET Core and C#
+Project that introduces me to C#
