@@ -23,11 +23,22 @@ namespace TrackerUI
             InitializeComponent();
 
             tournament = tournamentModel;
+            tournament.OnTournamentComplete += Tournament_OnTournamentComplete; ;
 
             WireUpLists();
 
             LoadFormData();
             LoadRounds();
+        }
+
+        /// <summary>
+        /// Closes form.
+        /// </summary>
+        /// <param name="sender">Unused</param>
+        /// <param name="e">Unused</param>
+        private void Tournament_OnTournamentComplete(object sender, DateTime e)
+        {
+            this.Close();
         }
 
         /// <summary>
