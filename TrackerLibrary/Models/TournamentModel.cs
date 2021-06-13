@@ -6,6 +6,8 @@ namespace TrackerLibrary.Models
 {
     public class TournamentModel
     {
+        public event EventHandler<DateTime> OnTournamentComplete;
+
         /// <summary>
         /// Primary key for the tournament.
         /// </summary>
@@ -38,5 +40,13 @@ namespace TrackerLibrary.Models
         /// A list of matchups for each round of the tournament.
         /// </summary>
         public List<List<MatchupModel>> Rounds { get; set; } = new List<List<MatchupModel>>();
+
+        /// <summary>
+        /// Event that triggers end of tournament.
+        /// </summary>
+        public void CompleteTournament()
+        {
+            OnTournamentComplete?.Invoke(this, DateTime.Now);
+        }
     }
 }
