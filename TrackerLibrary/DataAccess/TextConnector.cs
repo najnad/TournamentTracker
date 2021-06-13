@@ -10,6 +10,24 @@ namespace TrackerLibrary.DataAccess
     public class TextConnector : IDataConnection
     {
         /// <summary>
+        /// Removes tournament from text file database.
+        /// </summary>
+        /// <param name="model">TournamentModel</param>
+        public void CompleteTournament(TournamentModel model)
+        {
+            List<TournamentModel> tournaments = GlobalConfig.TournamentFile
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToTournamentModels();
+
+            tournaments.Remove(model);
+
+            tournaments.SaveToTournamentFile();
+
+            TournamentLogic.UpdateTournamentResults(model);
+        }
+
+        /// <summary>
         /// Saves a player to the text file database.
         /// </summary>
         /// <param name="model">A person object</param>
